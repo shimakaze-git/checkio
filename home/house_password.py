@@ -16,12 +16,12 @@ import re
 
 def checkio(data: str) -> bool:
     if 10 <= len(data) <= 64:
-        return True if re.match(r'((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,})', data) else False
+        password_match = r'((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,})'
+        return True if re.match(password_match, data) else False
     else:
         return False
 
-if __name__ is '__main__':
-
+if __name__ == "__main__":
     assert checkio('A1213pokl') is False, "1st example"
     assert checkio('bAse730onE4') is True, "2nd example"
     assert checkio('asasasasasasasaas') is False, "3rd example"
